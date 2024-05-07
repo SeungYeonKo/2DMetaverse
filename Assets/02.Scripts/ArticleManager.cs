@@ -1,0 +1,82 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+// 싱글톤 사용 이유
+// 1. 하나만을 보장
+// 2. 어디서든 쉽게 접근 가능
+public class ArticleManager : MonoBehaviour
+{
+    // 게시글 리스트
+    private List<Article> _articles = new List<Article>();
+
+    public List<Article> Articles => _articles;
+
+    public static ArticleManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+
+        _articles.Add(new Article()
+        {
+            Name = "고승연",
+            Content = "안녕하세~",
+            ArticleType = ArticleType.Normal,
+            Like = 1004,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "에몽가",
+            Content = "하이하잇~",
+            ArticleType = ArticleType.Normal,
+            Like = 79,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "조희수",
+            Content = "해삐:)",
+            ArticleType = ArticleType.Normal,
+            Like = 908,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "졸린사람",
+            Content = "졸려:(",
+            ArticleType = ArticleType.Normal,
+            Like = 104,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "Kurome",
+            Content = "쿠로쿠로밍ㅁ",
+            ArticleType = ArticleType.Normal,
+            Like = 104,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "이태환",
+            Content = "나는 전설이다",
+            ArticleType = ArticleType.Normal,
+            Like = 104,
+            WriteTime = DateTime.Now
+        });
+        _articles.Add(new Article()
+        {
+            Name = "96년생정성훈",
+            Content = "하이루방가방가",
+            ArticleType = ArticleType.Normal,
+            Like = 20,
+            WriteTime = DateTime.Now
+        });
+    }
+}
+
+
