@@ -1,5 +1,5 @@
 using System;
-using UnityEditor.Search;
+using MongoDB.Driver;
 using UnityEngine;
 using UnityEngine.UI;
 // Article 데이터를 보여주는 게임 오브젝트
@@ -12,7 +12,8 @@ public class UI_Article : MonoBehaviour
     public Text WriteTimeUI;      // 글 쓴 날짜/시간
 
     public UI_ArticleMenu MenuUI;
-    public Article _article;
+
+    private Article _article;
 
     public void Init(in Article article)
     {
@@ -20,8 +21,8 @@ public class UI_Article : MonoBehaviour
 
         NameTextUI.text = article.Name;
         ContentTextUI.text = article.Content;
-        LikeTextUI.text = $"{article.Like}";
-        WriteTimeUI.text = GetTimeString(article.WriteTime.ToLocalTime());      // ToLocalTime을 써서 한국 시간으로 변환
+        LikeTextUI.text = $"좋아요 {article.Like}";
+        WriteTimeUI.text = GetTimeString(article.WriteTime.ToLocalTime());
     }
 
     private string GetTimeString(DateTime dateTime)
@@ -51,8 +52,10 @@ public class UI_Article : MonoBehaviour
         return dateTime.ToString("yyyy년 M월 d일");
     }
 
+
     public void OnClickMenuButton()
     {
         MenuUI.Show(_article);
     }
+
 }

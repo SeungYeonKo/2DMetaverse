@@ -72,4 +72,5 @@ public class UI_ArticleList : MonoBehaviour
         ArticleWriteUI.gameObject.SetActive(true);
     }
 
+ 
 }
