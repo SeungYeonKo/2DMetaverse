@@ -7,6 +7,7 @@ public class UI_Article : MonoBehaviour
 {
     public Image ProfileImageUI;   // 프로필 이미지
     public Text NameTextUI;       // 글쓴이
+    public Text ArticleTypeUI;
     public Text ContentTextUI;    // 글 내용
     public Text LikeTextUI;       // 좋아요 개수
     public Text WriteTimeUI;      // 글 쓴 날짜/시간
@@ -20,6 +21,7 @@ public class UI_Article : MonoBehaviour
         _article = article;
 
         NameTextUI.text = article.Name;
+        ArticleTypeUI.text = article.ArticleType.ToString(); // Enum을 String으로 변환
         ContentTextUI.text = article.Content;
         LikeTextUI.text = $"좋아요 {article.Like}";
         WriteTimeUI.text = GetTimeString(article.WriteTime.ToLocalTime());

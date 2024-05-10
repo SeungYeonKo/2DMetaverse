@@ -458,7 +458,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 168562530784947224}
-        m_TargetAssemblyTypeName: UI_Dropdown, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI_ArticleMenu, Assembly-CSharp
         m_MethodName: OnClickEditButton
         m_Mode: 1
         m_Arguments:
@@ -2275,9 +2275,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 168562530784947224}
-        m_TargetAssemblyTypeName: UI_Dropdown, Assembly-CSharp
-        m_MethodName: OnClickDropdownButton
+      - m_Target: {fileID: 7844762088331661597}
+        m_TargetAssemblyTypeName: UI_Article, Assembly-CSharp
+        m_MethodName: OnClickMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2697,6 +2697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProfileImageUI: {fileID: 5357104829278040193}
   NameTextUI: {fileID: 4115542092083787522}
+  ArticleTypeUI: {fileID: 3595534607179838992}
   ContentTextUI: {fileID: 6172653419290888635}
   LikeTextUI: {fileID: 5678980035131052222}
   WriteTimeUI: {fileID: 934812611722409162}
