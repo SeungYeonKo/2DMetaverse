@@ -11,7 +11,7 @@ public class UI_ArticleWrite : MonoBehaviour
 
     public void OnClickExitButton()
     {
-        FindObjectOfType<UI_ArticleList>().gameObject.SetActive(true);
+        ArticleListUI.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
     public void OnClickWriteButton()
