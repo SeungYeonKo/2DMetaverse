@@ -6,9 +6,16 @@ using UnityEngine;
 // UI_Article 관리
 public class UI_ArticleList : MonoBehaviour
 {
+    public static UI_ArticleList Instance { get; private set; }
+
     public List<UI_Article> UIArticles;
     public GameObject EmptyObject;
     public UI_ArticleWrite ArticleWriteUI;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -23,6 +30,7 @@ public class UI_ArticleList : MonoBehaviour
     // 새로고침
     public void Refresh()
     {
+
         // 1. Article매니저로부터 Article들을 가져온다.
         List<Article> articles = ArticleManager.Instance.Articles;
 
@@ -37,7 +45,7 @@ public class UI_ArticleList : MonoBehaviour
 
         for (int i = 0; i < articles.Count; i++)
         {
-            // 3. 가져온 Article 개수만큼 UI_Article을 킨다.
+            // 3. 가져온 Article 개수만큼 UI_Article을 켠다.
             UIArticles[i].gameObject.SetActive(true);
             // 4. 각 UI_Article의 내용을 Article로 초기화(Init)한다.
             UIArticles[i].Init(articles[i]);
@@ -63,4 +71,5 @@ public class UI_ArticleList : MonoBehaviour
         gameObject.SetActive(false);
         ArticleWriteUI.gameObject.SetActive(true);
     }
+
 }

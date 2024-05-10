@@ -84,12 +84,15 @@ public class ArticleManager : MonoBehaviour
         _articleCollection.InsertOne(article);
     }
 
+    public void Delete(ObjectId id)
+    {
+        _articleCollection.DeleteOne(d=>d.Id==id);
+    }
 
-
-
-
-
-
-
+    public void Modify(ObjectId id, string newContent)
+    {
+        var update = Builders<Article>.Update.Set(a => a.Content, newContent);
+        _articleCollection.UpdateOne(a => a.Id == id, update);
+    }
 
 }
