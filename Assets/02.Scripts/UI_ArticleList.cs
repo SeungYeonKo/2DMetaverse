@@ -8,10 +8,15 @@ public class UI_ArticleList : MonoBehaviour
 {
     public List<UI_Article> UIArticles;
     public GameObject EmptyObject;
-
+    public UI_ArticleWrite ArticleWriteUI;
 
     private void Start()
     {
+        Refresh();
+    }
+    public void Show()
+    {
+        gameObject.SetActive(true);
         Refresh();
     }
 
@@ -51,5 +56,11 @@ public class UI_ArticleList : MonoBehaviour
     {
         ArticleManager.Instance.FindNotice();
         Refresh();
+    }
+
+    public void OnClickWriteButton()
+    {
+        gameObject.SetActive(false);
+        ArticleWriteUI.gameObject.SetActive(true);
     }
 }

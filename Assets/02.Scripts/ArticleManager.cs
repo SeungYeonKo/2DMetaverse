@@ -71,7 +71,18 @@ public class ArticleManager : MonoBehaviour
         _articles = _articleCollection.Find(data => (int)data.ArticleType == (int)ArticleType.Notice).ToList();
     }
 
-
+    public void Write(ArticleType articleType, string content)
+    {
+        Article article = new Article()
+        {
+            ArticleType = articleType,
+            Name = "고승연",
+            Content = content,
+            Like = 0,
+            WriteTime = DateTime.Now,
+        };
+        _articleCollection.InsertOne(article);
+    }
 
 
 
