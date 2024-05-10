@@ -1182,7 +1182,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7844762088331661597}
         m_TargetAssemblyTypeName: UI_Article, Assembly-CSharp
-        m_MethodName: OnClickFavoriteButton
+        m_MethodName: OnClickLikeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1547,8 +1547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b61296808fc8a74e85af678ba54aebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArticleModify: {fileID: 0}
-  contentInputField: {fileID: 0}
 --- !u!1 &4952800614961152075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,11 +2701,6 @@ MonoBehaviour:
   LikeTextUI: {fileID: 5678980035131052222}
   WriteTimeUI: {fileID: 934812611722409162}
   MenuUI: {fileID: 168562530784947224}
-  _article:
-    ArticleType: 0
-    Name: 
-    Content: 
-    Like: 0
 --- !u!1 &9024727486924233683
 GameObject:
   m_ObjectHideFlags: 0

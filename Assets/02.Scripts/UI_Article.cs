@@ -58,4 +58,12 @@ public class UI_Article : MonoBehaviour
         MenuUI.Show(_article);
     }
 
+    public void OnClickLikeButton()
+    {
+        // 1. 데이터 조작은 항상 매니저에게 시킨다
+        ArticleManager.Instance.AddLike(_article);
+
+        ArticleManager.Instance.FindAll();
+        UI_ArticleList.Instance.Refresh();
+    }
 }

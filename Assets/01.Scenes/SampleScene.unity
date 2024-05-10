@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 138200380}
     - target: {fileID: 2069842609414700123, guid: 311b52efaa6354b4fbaeea63869a0b3b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickFavoriteButton
+      value: OnClickLikeButton
       objectReference: {fileID: 0}
     - target: {fileID: 2069842609414700123, guid: 311b52efaa6354b4fbaeea63869a0b3b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

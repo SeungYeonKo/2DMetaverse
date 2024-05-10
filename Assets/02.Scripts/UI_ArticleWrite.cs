@@ -21,14 +21,15 @@ public class UI_ArticleWrite : MonoBehaviour
     }
     public void OnClickWriteButton()
     {
-        ArticleType articleType = NoticeToggleUI.isOn ? ArticleType.Notice : ArticleType.Notice;
+        ArticleType articleType = NoticeToggleUI.isOn ? ArticleType.Notice : ArticleType.Normal;
         string content = ContentInputFieldUI.text;
         if (string.IsNullOrEmpty(content))
         {
             return;
         }
-        ArticleManager.Instance.Write(articleType,content);
-        FindObjectOfType<UI_ArticleList>().Show();
+
+        ArticleManager.Instance.Write(articleType, content);
+        ArticleListUI.Show();
         gameObject.SetActive(false);
     }
 }
