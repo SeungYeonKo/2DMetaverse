@@ -17,6 +17,7 @@ public enum ArticleType
 }
 // 게시글을 나타내는 데이터 클래스
 [Serializable]
+[BsonIgnoreExtraElements]
 public class Article // Quest, Item, Achievement, Attendance 
 {
     [BsonId]
@@ -27,6 +28,8 @@ public class Article // Quest, Item, Achievement, Attendance
     public string Content;          // 글 내용
     public int Like;                // 좋아요 개수
     public DateTime WriteTime;      // 글 쓴 날짜/시간
+    [BsonDefaultValue("http://192.168.200.81:2001/emtpy.png")]
+    public string Profile;      // 프로필 이미지 주소
 }
 
 [Serializable]

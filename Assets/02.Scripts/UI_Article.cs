@@ -1,11 +1,17 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using MongoDB.Driver;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Profiling;
 using UnityEngine.UI;
 // Article 데이터를 보여주는 게임 오브젝트
 public class UI_Article : MonoBehaviour
 {
-    public Image ProfileImageUI;   // 프로필 이미지
+    private Dictionary<string, Texture> _cache = new Dictionary<string, Texture>();
+
+    public RawImage ProfileImageUI;   // 프로필 이미지
     public Text NameTextUI;       // 글쓴이
     public Text ArticleTypeUI;
     public Text ContentTextUI;    // 글 내용
@@ -25,6 +31,42 @@ public class UI_Article : MonoBehaviour
         ContentTextUI.text = article.Content;
         LikeTextUI.text = $"좋아요 {article.Like}";
         WriteTimeUI.text = GetTimeString(article.WriteTime.ToLocalTime());
+
+       StartCoroutine(GetTexture(article.Profile));
+   
+    }
+
+    private IEnumerator GetTexture(string url)
+    {
+        // 캐쉬된게 있을 때 -> 캐시 히트(적중)
+        if (_cache.ContainsKey(url))
+        {
+            Debug.Log("캐시 히트!");
+            var now = DateTime.Now;
+
+            ProfileImageUI.texture = _cache[url];
+
+            var span = DateTime.Now - now;
+            Debug.Log($"캐시 히트 ! : {span.TotalMilliseconds}");
+
+            yield break;
+        }
+       
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+
+
+
+        yield return www.SendWebRequest(); // 비동기
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            ProfileImageUI.texture = myTexture;
+        }
     }
 
     private string GetTimeString(DateTime dateTime)

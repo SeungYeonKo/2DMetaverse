@@ -2695,7 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34b2f741f670c34b91f787b4a78a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProfileImageUI: {fileID: 5357104829278040193}
+  ProfileImageUI: {fileID: 7021262726067880433}
   NameTextUI: {fileID: 4115542092083787522}
   ArticleTypeUI: {fileID: 3595534607179838992}
   ContentTextUI: {fileID: 6172653419290888635}
@@ -2712,7 +2712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5467724329757800822}
   - component: {fileID: 857518812443609725}
-  - component: {fileID: 5357104829278040193}
+  - component: {fileID: 7021262726067880433}
   m_Layer: 5
   m_Name: ProfileImage
   m_TagString: Untagged
@@ -2747,7 +2747,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9024727486924233683}
   m_CullTransparentMesh: 1
---- !u!114 &5357104829278040193
+--- !u!114 &7021262726067880433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2756,7 +2756,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9024727486924233683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2767,16 +2767,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d3b655963ba700842a80ac4ac0d36e0b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &9080066240839743018
 GameObject:
   m_ObjectHideFlags: 0
