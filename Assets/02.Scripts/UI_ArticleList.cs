@@ -11,6 +11,7 @@ public class UI_ArticleList : MonoBehaviour
     public List<UI_Article> UIArticles;
     public GameObject EmptyObject;
     public UI_ArticleWrite ArticleWriteUI;
+    public GameObject MapUI;
 
     private void Awake()
     {
@@ -70,6 +71,11 @@ public class UI_ArticleList : MonoBehaviour
     {
         gameObject.SetActive(false);
         ArticleWriteUI.gameObject.SetActive(true);
+    }
+
+    public void OnClickMapButton()
+    {
+       MapUI.gameObject.SetActive(true);
     }
 
  
