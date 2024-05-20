@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class UI_Map : MonoBehaviour
+public class UI_MapRoute : MonoBehaviour
 {
     public RawImage mapRawImage;
 
@@ -16,43 +16,19 @@ public class UI_Map : MonoBehaviour
     public string secretKey = "";
     public InputField inputField;
     public Button searchButton;
-    public Button plusButton;
-    public Button minusButton;
     private string baseUrl = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode";
-
-    // 현재 맵의 중앙좌표 저장할 변수들
-    private string currentLatitude;
-    private string currentLongitude;
 
     void Start()
     {
         mapRawImage = GetComponent<RawImage>();
         searchButton.onClick.AddListener(OnClickSearchButton);
-        plusButton.onClick.AddListener(OnClickPlusButton);
-        minusButton.onClick.AddListener(OnClickMinusButton);
     }
 
     void OnClickSearchButton()
     {
         string address = inputField.text;
-
-
         // 입력한 주소로 좌표를 가져오는 함수 호출
         GetCoordinatesFromAddress(address);
-    }
-
-    void OnClickPlusButton()
-    {
-        level+=1;
-        Debug.Log($"++ 하였습니다. 현재 :{level}");
-        ReloadMap();
-    }
-
-    void OnClickMinusButton()
-    {
-        level-=1;
-        Debug.Log($"-- 하였습니다. 현재 :{level}");
-        ReloadMap();
     }
 
     // 주소로부터 좌표를 가져오는 함수
@@ -97,12 +73,12 @@ public class UI_Map : MonoBehaviour
         if (geocodeResponse.addresses != null && geocodeResponse.addresses.Length > 0)
         {
             // 첫 번째 주소의 위도와 경도를 추출
-            currentLatitude = geocodeResponse.addresses[0].y;
-            currentLongitude = geocodeResponse.addresses[0].x;
-            Debug.Log($"Latitude: {currentLatitude}, Longitude: {currentLongitude}");
+            string latitude = geocodeResponse.addresses[0].y;
+            string longitude = geocodeResponse.addresses[0].x;
+            Debug.Log($"Latitude: {latitude}, Longitude: {longitude}");
 
             // 좌표를 기반으로 지도를 로드하는 코루틴 호출
-            StartCoroutine(MapLoader(currentLatitude, currentLongitude));
+            StartCoroutine(MapLoader(latitude, longitude));
         }
         else
         {
@@ -134,15 +110,6 @@ public class UI_Map : MonoBehaviour
         else
         {
             mapRawImage.texture = DownloadHandlerTexture.GetContent(request);
-        }
-    }
-
-    // 현재 저장된 좌표를 사용하여 지도를 다시 로드하는 함수
-    void ReloadMap()
-    {
-        if (!string.IsNullOrEmpty(currentLatitude) && !string.IsNullOrEmpty(currentLongitude))
-        {
-            StartCoroutine(MapLoader(currentLatitude, currentLongitude));
         }
     }
 
